@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DPS (Divisional Public School)</title>
+  <style>
+    /* Reset */
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; } /* fallback smooth behavior */
+    body { font-family: "Segoe UI", Arial, sans-serif; background:#f2f2f2; color:#222; line-height:1.6; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      background:#666;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:10px 20px;
+      z-index:1000;
+      box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand img { height:48px; display:block; }
+    .brand h1 { font-size:18px; margin:0; font-weight:700; }
+
+    nav ul { list-style:none; display:flex; gap:12px; margin-left:auto; align-items:center; }
+    nav a { color:#fff; text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:700; }
+    nav a:hover { background: rgba(255,255,255,0.08); color:#ffebcc; }
+
+    /* Hero */
+    .hero {
+      height:88vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      color:#fff;
+      position:relative;
+      background: url("background.jpg") center/cover no-repeat;
+      background-color:#3b6ea5; /* fallback */
+    }
+    .hero::before {
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45));
+    }
+    .hero .inner { position:relative; z-index:2; }
+    .hero h2 { font-size:44px; text-shadow:3px 3px 12px rgba(0,0,0,0.7); margin-bottom:18px; }
+    /* Styled anchor as button (works reliably) */
+    .explore {
+      display:inline-block;
+      background:#ff9900;
+      color:#fff;
+      padding:12px 26px;
+      border-radius:30px;
+      font-weight:800;
+      text-decoration:none;
+      box-shadow:0 6px 18px rgba(0,0,0,0.35);
+      transition: transform .18s ease, background .18s;
+    }
+    .explore:hover { transform:translateY(-3px); background:#e07b00; }
+
+    /* Card sections */
+    .section {
+      background:#fff;
+      margin:20px;
+      padding:40px;
+      border-radius:14px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.15);
+      display:flex;
+      align-items:center;
+      gap:32px;
+      flex-wrap:wrap;
+    }
+    .section .photo {
+      flex:0 0 320px;
+    }
+    .section .photo img {
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:12px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.25);
+      transition: transform .25s ease;
+    }
+    .section .photo img:hover { transform:scale(1.03); }
+    .section .text { flex:1 1 320px; }
+    .section h3 { font-size:26px; margin-bottom:10px; color:#222; }
+    .section p { color:#555; font-size:16px; line-height:1.6; }
+
+    /* full width photos */
+    .wide {
+      display:block;
+      width:90%;
+      max-width:1200px;
+      margin:36px auto;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      overflow:hidden;
+    }
+    .wide img { width:100%; display:block; height:auto; }
+
+    /* ending & footer */
+    .ending { background:#fff; margin:20px; padding:36px; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.14); text-align:center; font-size:18px; }
+    footer { background:#666; color:#fff; padding:12px 20px; text-align:right; font-weight:700; }
+
+    /* Responsive */
+    @media (max-width: 840px) {
+      .hero h2 { font-size:32px; }
+      nav ul { gap:8px; }
+      .section { padding:26px; }
+      .section .photo img { height:200px; }
+    }
+    @media (max-width: 520px) {
+      header { padding:10px 12px; gap:8px; }
+      .brand img { height:40px; }
+      .brand h1 { font-size:16px; }
+      .hero { height:60vh; padding:10px; }
+      .hero h2 { font-size:24px; }
+      nav ul { display:flex; flex-wrap:wrap; gap:6px; }
+      .section { margin:14px; padding:18px; }
+      .section .photo { flex-basis:100%; }
+      .section .text { text-align:center; }
+      .section .photo img { height:180px; }
+      .explore { padding:10px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="logo.png" alt="DPS Logo" onerror="this.style.display='none'">
+      <h1>DPS (Divisional Public School)</h1>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#principal">Principal</a></li>
+        <li><a href="#headmaster">Headmaster</a></li>
+        <li><a href="#deputy">Deputy</a></li>
+        <li><a href="#staff">Staff</a></li>
+        <li><a href="#school">School</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" role="banner">
+      <div class="inner">
+        <h2>DPS (Divisional Public School)</h2>
+        <!-- anchor styled as button -->
+        <a class="explore" href="#principal">Explore more about school</a>
+      </div>
+    </section>
+
+    <!-- Principal -->
+    <section id="principal" class="section" aria-labelledby="principal-title">
+      <div class="photo">
+        <img src="4.jpg" alt="Principal of DPS" onerror="this.style.display='none'">
+      </div>
+      <div class="text">
+        <h3 id="principal-title">Principal DPS</h3>
+        <p>The Principal leads the school with clear vision and strong values, focusing on academic excellence, pastoral care and community engagement. They guide curriculum plans, mentor teachers and ensure every student has the support to succeed.</p>
+      </div>
+    </section>
+
+    <!-- Headmaster -->
+    <section id="headmaster" class="section" aria-labelledby="headmaster-title">
+      <div class="photo">
+        <img src="3.jpg" alt="Headmaster of DPS" onerror="this.style.display='none'">
+      </div>
+      <div class="text">
+        <h3 id="headmaster-title">Headmaster DPS</h3>
+        <p>The Headmaster maintains high teaching standards and student discipline. They coordinate daily school operations, support teachers, and help implement programs that improve learning outcomes and wellbeing for students.</p>
+      </div>
+    </section>
+
+    <!-- Deputy Headmaster -->
+    <section id="deputy" class="section" aria-labelledby="deputy-title">
+      <div
+       class="photo">
+        </div>
+        <img src="4.jpg"School Building" onerror="this.style.display='none'">
+      <div class="text">
+        <h3 id="deputy-title">Deputy Headmaster DPS</h3>
+        <p>The Deputy Headmaster assists with school management, student welfare, and administrative duties. They act as a bridge between staff and leadership and help maintain a safe, orderly learning environment.</p>
+      </div>
+    </section>
+
+    <!-- Staff -->
+    <div id="staff" class="wide" aria-label="Staff group photo">
+      <img src="1.jpg" alt="Staff Group Photo" onerror="this.style.display='none'">
+    </div>
+
+    <!-- School building -->
+    <div id="school" class="wide" aria-label="School building photo">
+      <img src="2.jpg" alt="School Building" onerror="this.style.display='none'">
+    </div>
+
+    <div class="ending">
+      <p>DPS (Divisional Public School) is committed to nurturing young minds through balanced academics, sports and moral education. Our staff and leadership work together to create a caring and ambitious environment for every student.</p>
+    </div>
+  </main>
+
+  <footer>
+  <p>
+    Contact: 
+    <a href="mailto:dps@gmail.com">dps@gmail.com</a>
+  </p>
+  <p style="text-align: right; margin: 0;">M. Maheer Imran</p>
+</footer>
+</body>
+</html>
+
+
+  <script>
+    // Smooth scroll with sticky header offset and reliable click handling
+    (function() {
+      const header = document.querySelector('header');
+
+      function getHeaderHeight() {
+        return header ? header.getBoundingClientRect().height : 0;
+      }
+
+      function scrollToElementById(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const headerHeight = getHeaderHeight();
+        const rectTop = el.getBoundingClientRect().top + window.pageYOffset;
+        const target = Math.max(rectTop - headerHeight - 12, 0);
+        window.scrollTo({ top: target, behavior: 'smooth' });
+      }
+
+      // Intercept anchor clicks to use offset scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          const id = href.slice(1);
+          // prevent default jump
+          e.preventDefault();
+          scrollToElementById(id);
+          // update URL (optional) without causing jump
+          if (history.pushState) history.pushState(null, '', '#' + id);
+          else location.hash = '#' + id;
+        });
+      });
+
+      // If page loaded with a hash, scroll to it with offset after rendering
+      if (location.hash) {
+        setTimeout(() => {
+          const id = location.hash.slice(1);
+          scrollToElementById(id);
+        }, 60);
+      }
+
+      // Optional: adjust scroll if window is resized (keeps offset accurate for back/forward)
+      window.addEventListener('resize', () => {
+        if (location.hash) {
+          const id = location.hash.slice(1);
+          // small delay to let layout settle
+          setTimeout(() => scrollToElementById(id), 80);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
